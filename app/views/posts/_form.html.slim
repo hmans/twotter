@@ -1,3 +1,3 @@
-= simple_form_for post do |f|
-  = f.input :body
-  = f.submit
+= simple_form_for [post.user, post] do |f|
+  = f.input :body, autofocus: true, label: false
+  = f.submit 

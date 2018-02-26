@@ -1,7 +1,7 @@
 h1 = @user.full_name
 
-= simple_form_for @user.posts.new do |f|
-  = f.input :body
-  = f.submit
+h3 Post something:
+= render 'posts/form', post: @user.posts.new
 
+h3 Previous posts:
 = render @user.posts

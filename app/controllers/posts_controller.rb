@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  before_action :load_user
+
   def create
-    @post = current_user.posts.new(post_params)
+    @post = @user.posts.new(post_params)
     if @post.save
       redirect_to @post.user
     else
@@ -10,6 +12,12 @@ class PostsController < ApplicationController
 
 
   private
+
+  def load_user
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    end
+  end
 
   def post_params
     params.require(:post).permit(:body)
