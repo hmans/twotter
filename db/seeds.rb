@@ -8,3 +8,5 @@
 
 hmans = User.create!(name: 'hmans', full_name: 'Hendrik Mans',
   email: 'hendrik@mans.de', password: 'secret123')
+
+hmans.posts.create!(body: 'Hello Twotter!')

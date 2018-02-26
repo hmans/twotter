@@ -11,4 +11,8 @@ class User < ApplicationRecord
     uniqueness: true
 
   has_secure_password
+
+  has_many :posts,
+    -> { order(created_at: :desc) },
+    dependent: :destroy
 end
