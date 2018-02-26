@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :load_user
 
+  def index
+    @posts = @user ? @user.posts : Post.latest
+  end
+
   def create
     @post = @user.posts.new(post_params)
     if @post.save

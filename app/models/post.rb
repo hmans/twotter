@@ -4,4 +4,7 @@ class Post < ApplicationRecord
   validates :body,
     presence: true,
     length: { within: 1..280 }
+
+  scope :latest,
+    -> { order(created_at: :desc) }
 end
