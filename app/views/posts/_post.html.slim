@@ -1,2 +1,3 @@
 article.post
+  .post-meta #{link_to post.user.full_name, post.user}, #{time_ago_in_words post.created_at} ago:
   = simple_format post.body

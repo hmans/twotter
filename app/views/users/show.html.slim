@@ -1,7 +1,7 @@
 h1 = @user.full_name
 
 h3 Post something:
-= render 'posts/form', post: @user.posts.new
+= render 'posts/form', post: Post.new(user: @user)
 
 h3 Previous posts:
 = render @user.posts
