@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+%remove-inner-margins {
+  >*:first-child { margin-top: 0 }
+  >*:last-child { margin-bottom: 0 }
+}
+
+* { box-sizing: inherit; }
+html,body { box-sizing: border-box; }
+
+$col1: rgb(159, 176, 198);
+
+body {
+  background-color: $col1;
+  font: 15px/1.5 "Open Sans",Helvetica;
+}
+
+.container {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  margin: 2em 0;
+
+  >* {
+    @extend %remove-inner-margins;
+    padding: 1em;
+
+    &:not(:first-child) {
+      border-top: 1px solid $col1;
+    }
+  }
+}
+
+.post-meta {
+  font-size: 85%;
+  color: #999;
+  a { color: inherit }
+}
+
+input[type="text"], textarea {
+  font: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+  &::placeholder {
+    color: #ddd;
+  }
+}

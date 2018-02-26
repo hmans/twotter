@@ -1,3 +1,4 @@
 h1 Latest Posts by #{@user ? link_to(@user.full_name, @user) : "Everyone"}
 
-= render @posts
+section
+  = render @posts
