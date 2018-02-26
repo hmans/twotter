@@ -51,4 +51,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # We don't need .scss or .coffee files for every controller we add...
+  config.generators.stylesheets = false
+  config.generators.javascripts = false
+  config.generators.helper      = false
 end
