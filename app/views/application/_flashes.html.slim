@@ -1,0 +1,5 @@
+.flashes
+  .container
+    - [:error, :alert, :notice].each do |what|
+      - if flash[what].present?
+        = simple_format flash[what]

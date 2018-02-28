@@ -25,6 +25,10 @@ nav[role="main"] {
   background-color: rgba(0, 0, 0, 0.1);
   line-height: 2;
 
+  .container {
+    @extend %remove-inner-margins;
+  }
+
   ul {
     margin: 0;
     list-style: none;
@@ -34,6 +38,15 @@ nav[role="main"] {
   li { display: inline; }
   li:not(:first-child) { margin-left: 1em; }
   a { color: rgba(255, 255, 255, 0.9); }
+}
+
+div.flashes {
+  background-color: rgba(255, 255, 255, 0.3);
+  line-height: 2;
+
+  .container {
+    @extend %remove-inner-margins;
+  }
 }
 
 section {
@@ -57,12 +70,22 @@ section {
   a { color: inherit }
 }
 
-input[type="text"], textarea {
+/* Forms */
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.input {
+  margin: 1em 0;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
   font: inherit;
   color: inherit;
   outline: none;
   border: none;
-  background: transparent;
   width: 100%;
 
   &::placeholder {
