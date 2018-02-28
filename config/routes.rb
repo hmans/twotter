@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # Just make sure that the controller can deal with both situations!
   resources :posts
 
-  resource :session
+  resource :session,
+    only: [:new, :create, :destroy]
 
   get 'global' => 'posts#index'
   get 'timeline' => 'posts#timeline'
