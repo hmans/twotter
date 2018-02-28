@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = @user.posts.new(post_params)
     if @post.save
-      redirect_to @post.user
+      redirect_back fallback_location: @user
     else
       render :new
     end
