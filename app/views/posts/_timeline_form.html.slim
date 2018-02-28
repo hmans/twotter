@@ -1,1 +1,4 @@
-= render 'posts/form', post: current_user.posts.new
+article.post
+  .post-avatar = gravatar current_user
+  .post-content
+    .post-body = render 'posts/form', post: current_user.posts.new

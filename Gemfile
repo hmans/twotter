@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'slim-rails'
 # SimpleForms makes forms... simpler
 gem 'simple_form'
+# We use gravatars (gravatar.com) for user images because we're lazy
+gem 'gravatar_image_tag'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,3 +1,5 @@
 article.post
-  .post-meta #{link_to post.user.full_name, post.user}, #{time_ago_in_words post.created_at} ago:
-  = simple_format post.body
+  .post-avatar = gravatar post.user
+  .post-content
+    .post-meta #{link_to post.user.full_name, post.user}, #{time_ago_in_words post.created_at} ago:
+    .post-body = simple_format post.body
