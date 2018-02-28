@@ -8,5 +8,9 @@ html
     = csrf_meta_tags
 
   body
+    nav role="main"
+      .container
+        = render 'navigation'
+
     .container
       = yield
