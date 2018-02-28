@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :followings
   resources :users do
     resources :posts
+    resources :followings
   end
 
   # You can have multiple resources entries pointing at the same controller.
