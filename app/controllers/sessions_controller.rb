@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     if user = find_user.try(:authenticate, password)
-      session[:current_user_id] = user.id
+      login_user(user)
       redirect_to :root, notice: "Welcome back!"
     else
       flash.now[:error] = "Login attempt failed."
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:current_user_id] = nil
+    logout_user
     redirect_to :root, notice: "You have been logged out."
   end
 
