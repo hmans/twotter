@@ -1,5 +1,6 @@
 h1 = @user.full_name
 
 section
-  = render 'posts/form', post: Post.new(user: @user)
+  - if current_user == @user
+    = render 'posts/form', post: Post.new(user: @user)
   = render @user.posts

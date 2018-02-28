@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
   before_action :load_user
+  before_action :require_user, except: [:index, :show]
 
   def index
     @posts = @user ? @user.posts : Post.latest
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def timeline
