@@ -11,9 +11,23 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     placeholders:
+      user:
+        new:
+          full_name: "eg. Jane Doe"
+          name: "eg. jdoe"
+          email: "eg. jane@doe.com"
+          password: "eg. ***********"
       login:
         name_or_email: "eg. joe@doe.com"
         password: "eg. ********"
+    labels:
+      user:
+        new:
+          name: "Your preferred screen name:"
+          full_name: "What's your full real name?"
+          email: "Please enter your email address:"
+          password: "Please choose a secure password:"
+          password: "Please confirm your password:"
     # Examples
     # labels:
     #   defaults:

@@ -1,0 +1,15 @@
+h1 Create New Account
+
+section
+  = simple_form_for @user do |f|
+    h3 About you:
+    = f.input :name
+    = f.input :full_name
+
+    h3 How to spam you:
+    = f.input :email
+    
+    h3 Password:
+    = f.input :password
+    = f.input :password_confirmation
+    = f.submit
