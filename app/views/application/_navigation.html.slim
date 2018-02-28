@@ -1,9 +1,9 @@
 ul
+  li = link_to 'All Posts', global_path
   - if current_user?
     li = link_to 'Timeline', timeline_path
     li = link_to 'Profile', current_user
     li = link_to fa_icon('sign-out', text: 'Logout'), session_path, method: 'delete'
   - else
-    li = link_to 'All Posts', global_path
     li = link_to fa_icon('sign-in', text: 'Login'), new_session_path
     li = link_to fa_icon('user-plus', text: 'Create Account'), new_user_path
