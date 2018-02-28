@@ -20,3 +20,12 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     color: #ddd;
   }
 }
+
+button, input[type="submit"] {
+  outline: none;
+  border: none;
+  font: inherit;
+  background-color: $col2;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}

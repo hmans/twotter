@@ -2,6 +2,7 @@
 html,body { box-sizing: border-box; }
 
 $col1: rgb(159, 176, 198);
+$col2: rgb(240, 189, 36);
 
 body {
   background-color: $col1;
@@ -13,6 +14,8 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+a { color: $col2; }
 
 nav[role="main"] {
   background-color: rgba(0, 0, 0, 0.1);
