@@ -5,6 +5,12 @@ class PostsController < ApplicationController
     @posts = @user ? @user.posts : Post.latest
   end
 
+  def timeline
+    @posts = current_user
+      .followed_users_posts
+      .order(created_at: :desc)
+  end
+
   def create
     @post = @user.posts.new(post_params)
     if @post.save
