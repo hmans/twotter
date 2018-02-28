@@ -1,0 +1,21 @@
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.input {
+  margin-bottom: 1em;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  font: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  width: 100%;
+
+  &::placeholder {
+    color: #ddd;
+  }
+}
