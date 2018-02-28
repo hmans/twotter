@@ -22,6 +22,15 @@ class User < ApplicationRecord
     through: :followings,
     source: :followed_user
 
+  has_many :follower_followings,
+    class_name: 'Following',
+    foreign_key: 'followed_user_id'
+
+  has_many :followers,
+    through: :follower_followings,
+    source: :user
+
+
   # Now this is possible, yay:
   has_many :followed_users_posts,
     through: :followed_users,

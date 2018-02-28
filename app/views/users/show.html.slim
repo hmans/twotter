@@ -1,11 +1,13 @@
 h1 = @user.full_name
 
-- if current_user != @user
-  section
+section
+  - if current_user != @user
     - if current_user.follows?(@user)
       = button_to "Unfollow", [:unfollow, @user], data: { confirm: "Are you sure?" }
     - else
       = button_to "Follow", [:follow, @user]
+
+  = render 'followers'
 
 section
   - if current_user == @user

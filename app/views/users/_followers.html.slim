@@ -1,0 +1,10 @@
+- followers = @user.followers
+
+.followers
+  h3 = pluralize followers.count, "Follower"
+
+  - if followers.any?
+    - followers.each do |follower|
+      = link_to gravatar(follower), follower
+  - else
+    p Nobody is following @#{@user.name}. SAD :-(
