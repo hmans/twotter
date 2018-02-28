@@ -2,14 +2,21 @@ nav[role="main"] {
   background-color: rgba(0, 0, 0, 0.1);
   line-height: 2;
 
+
   .container {
     @extend %remove-inner-margins;
+    display: flex;
   }
 
   ul {
+    flex: 1;
     margin: 0;
     list-style: none;
     padding-left: 0;
+  }
+
+  ul.right {
+    text-align: right;
   }
 
   li { display: inline; }
