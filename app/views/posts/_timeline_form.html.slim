@@ -1,4 +1,8 @@
+- post = current_user.posts.new
+
 article.post
   .post-avatar = gravatar current_user
   .post-content
-    .post-body = render 'posts/form', post: current_user.posts.new
+    = simple_form_for [post.user, post] do |f|
+      = f.input :body, autofocus: true, label: false, placeholder: "What's happening?"
+      = f.submit
