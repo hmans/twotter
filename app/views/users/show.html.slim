@@ -2,5 +2,5 @@ h1 = @user.full_name
 
 section
   - if current_user == @user
-    = render 'posts/form', post: Post.new(user: @user)
+    = render 'posts/timeline_form'
   = render @user.posts
