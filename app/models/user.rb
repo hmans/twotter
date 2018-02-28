@@ -15,4 +15,14 @@ class User < ApplicationRecord
   has_many :posts,
     -> { order(created_at: :desc) },
     dependent: :destroy
+
+  has_many :followings
+
+  has_many :followed_users,
+    through: :followings,
+    source: :followed_user
+
+  has_many :followed_users_posts,
+    through: :followed_users,
+    source: :posts
 end

@@ -9,4 +9,10 @@
 hmans = User.create!(name: 'hmans', full_name: 'Hendrik Mans',
   email: 'hendrik@mans.de', password: 'secret123')
 
+alice = User.create!(name: 'alice', full_name: 'Alice',
+  email: 'alice@test.com', password: 'hiimalice')
+
 hmans.posts.create!(body: 'Hello Twotter!')
+alice.posts.create!(body: "Hi, I'm Alice!")
+
+hmans.followed_users << alice
