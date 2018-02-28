@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def timeline
     @posts = current_user
-      .followed_users_posts
+      .timeline_posts
       .order(created_at: :desc)
   end
 

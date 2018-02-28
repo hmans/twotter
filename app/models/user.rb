@@ -22,7 +22,14 @@ class User < ApplicationRecord
     through: :followings,
     source: :followed_user
 
+  # Now this is possible, yay:
   has_many :followed_users_posts,
     through: :followed_users,
     source: :posts
+
+  def timeline_posts
+    # NOTE: it may be tempting to use #followed_users_posts here, but
+    # those don't include our own posts. So let's do this instead:
+    Post.where(user_id: followed_user_ids + [id])
+  end
 end
