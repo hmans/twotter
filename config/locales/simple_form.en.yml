@@ -10,6 +10,10 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    placeholders:
+      login:
+        name_or_email: "eg. joe@doe.com"
+        password: "eg. ********"
     # Examples
     # labels:
     #   defaults:
