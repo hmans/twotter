@@ -1,0 +1,22 @@
+nav[role="main"] {
+  background-color: rgba(0, 0, 0, 0.1);
+  line-height: 2;
+
+  .container {
+    @extend %remove-inner-margins;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li { display: inline; }
+  li:not(:first-child) { margin-left: 1em; }
+  a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+  }
+  a:hover { text-decoration: underline }
+}

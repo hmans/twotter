@@ -62,6 +62,8 @@ GEM
       railties (>= 3.0.0)
     ffaker (2.8.1)
     ffi (1.9.23)
+    font-awesome-rails (4.7.0.3)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
@@ -199,6 +201,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_bot_rails
   ffaker
+  font-awesome-rails
   gravatar_image_tag
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)

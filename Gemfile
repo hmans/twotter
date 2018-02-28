@@ -36,7 +36,8 @@ gem 'slim-rails'
 gem 'simple_form'
 # We use gravatars (gravatar.com) for user images because we're lazy
 gem 'gravatar_image_tag'
-
+# FontAwesome is a cool icon font. Let's use it!
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

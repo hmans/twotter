@@ -3,9 +3,12 @@ h1 = @user.full_name
 section
   - if current_user != @user
     - if current_user.follows?(@user)
-      = button_to "Unfollow", [:unfollow, @user], data: { confirm: "Are you sure?" }
+      = button_to [:unfollow, @user], data: { confirm: "Are you sure?" } do
+        = fa_icon('times', text: "Unfollow")
     - else
-      = button_to "Follow", [:follow, @user]
+      = button_to [:follow, @user] do
+        = fa_icon('eye', text: "Follow")
+
 
   = render 'followers'
 
