@@ -27,6 +27,23 @@ class User < ApplicationRecord
     through: :followed_users,
     source: :posts
 
+  def following?(user)
+    followed_users.include?(user)
+  end
+  alias_method :follows?, :following?
+
+  def follow!(user)
+    unless following?(user)
+      followed_users << user
+    end
+  end
+
+  def unfollow!(user)
+    if following?(user)
+      followed_users.delete(user)
+    end
+  end
+
   def timeline_posts
     # NOTE: it may be tempting to use #followed_users_posts here, but
     # those don't include our own posts. So let's do this instead:
