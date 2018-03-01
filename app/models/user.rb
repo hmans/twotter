@@ -28,10 +28,15 @@ class User < ApplicationRecord
     source: :followed_user
 
   # Establish the reverse relation, ie. to users following this user
-  # (aka followers.) For this, we simply need to go through our Followings
-  # again, but source the other user relation.
+  # (aka followers.) For this, we also need to establish a relation to the
+  # Followings representing other users following us, and then go
+  # through that.
+  has_many :follower_followings,
+    class_name: 'Following',
+    foreign_key: :followed_user_id
+
   has_many :followers,
-    through: :followings,
+    through: :follower_followings,
     source: :user
 
   # Now it's possible to fetch all posts by followed users with yet another
