@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :user do
-    name "MyString"
-    full_name "MyString"
-    email "MyString"
-    password_digest "MyString"
+    name      { |u| u.full_name.parameterize }
+    full_name { FFaker::Name.name }
+    email     { |u| FFaker::Internet.email(u.full_name) }
+    password_digest { "..." }
   end
 end

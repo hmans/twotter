@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    user nil
-    body "MyText"
+    user { User.last }
+    body { FFaker::Lorem.paragraph.truncate(250) }
   end
 end

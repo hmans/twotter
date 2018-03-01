@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 SeedData.generate_basic_users
+SeedData.generate_bulk_data
