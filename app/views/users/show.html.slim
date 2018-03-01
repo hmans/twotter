@@ -15,4 +15,5 @@ section
 section
   - if current_user == @user
     = render 'posts/timeline_form'
-  = render @user.posts
+
+  = render 'posts/posts_with_paginator', posts: @posts

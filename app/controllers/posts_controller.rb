@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = @user ? @user.posts : Post.latest
+    @posts = @posts.page(params[:page])
   end
 
   def show

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.includes(:posts).find(params[:id])
+    @posts = @user.posts.page(params[:page])
   end
 
   def follow

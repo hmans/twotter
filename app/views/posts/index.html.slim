@@ -1,4 +1,4 @@
 h1 Latest Posts by #{@user ? link_to(@user.full_name, @user) : "Everyone"}
 
 section
-  = render @posts
+  = render 'posts_with_paginator', posts: @posts
