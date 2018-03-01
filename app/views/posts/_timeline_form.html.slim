@@ -4,5 +4,5 @@ article.post
   .post-avatar = gravatar current_user
   .post-content
     = simple_form_for [post.user, post] do |f|
-      = f.input :body, autofocus: true, label: false, placeholder: "What's happening?"
+      = f.input :body, autofocus: true, label: false
       = f.submit

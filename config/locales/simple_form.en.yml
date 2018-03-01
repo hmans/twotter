@@ -11,6 +11,8 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     placeholders:
+      post:
+        body: "What's happening?"
       user:
         new:
           full_name: "eg. Jane Doe"
