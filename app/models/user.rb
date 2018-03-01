@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # Some basic validations for our attributes.
   validates :name,
     presence: true,
     uniqueness: true
@@ -10,31 +11,35 @@ class User < ApplicationRecord
     presence: true,
     uniqueness: true
 
+  # This enables #password= and the automatic hashing.
   has_secure_password
 
+  # Establish a relation to this user's posts.
   has_many :posts,
     -> { order(created_at: :desc) },
     dependent: :destroy
 
+  # Establish a relation to the users this user is following,
+  # through our join model "Following".
   has_many :followings
 
   has_many :followed_users,
     through: :followings,
     source: :followed_user
 
-  has_many :follower_followings,
-    class_name: 'Following',
-    foreign_key: 'followed_user_id'
-
+  # Establish the reverse relation, ie. to users following this user
+  # (aka followers.) For this, we simply need to go through our Followings
+  # again, but source the other user relation.
   has_many :followers,
-    through: :follower_followings,
+    through: :followings,
     source: :user
 
-
-  # Now this is possible, yay:
+  # Now it's possible to fetch all posts by followed users with yet another
+  # simple has_many relation:
   has_many :followed_users_posts,
     through: :followed_users,
     source: :posts
+
 
   def following?(user)
     followed_users.include?(user)
