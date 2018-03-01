@@ -28,6 +28,11 @@ button, input[type="submit"] {
   background-color: $col2;
   padding: 0.5em 1em;
   cursor: pointer;
+
+  &:disabled {
+    background-color: #ddd;
+    cursor: default;
+  }
 }
 
 .error {
