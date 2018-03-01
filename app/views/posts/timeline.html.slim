@@ -3,4 +3,8 @@ h1 Your Timeline
 section
   - if current_user?
     = render 'timeline_form'
+
   = render @posts
+
+section
+  = paginate @posts

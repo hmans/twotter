@@ -38,6 +38,8 @@ gem 'simple_form'
 gem 'gravatar_image_tag'
 # FontAwesome is a cool icon font. Let's use it!
 gem 'font-awesome-rails'
+# For pagination
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

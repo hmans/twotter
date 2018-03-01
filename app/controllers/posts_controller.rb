@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @posts = current_user
       .timeline_posts
       .order(created_at: :desc)
+      .page(params[:page])
   end
 
   def create
