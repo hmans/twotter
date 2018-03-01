@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  paginates_per 20
+
   belongs_to :user
 
   validates :body,

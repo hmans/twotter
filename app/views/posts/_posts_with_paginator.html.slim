@@ -1,0 +1,5 @@
+= render posts
+
+- if posts.next_page
+  #load_more
+    = link_to_next_page posts, "Load More", remote: true, data: { disable_with: 'Loading...' }

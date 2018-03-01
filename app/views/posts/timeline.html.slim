@@ -4,7 +4,4 @@ section
   - if current_user?
     = render 'timeline_form'
 
-  = render @posts
-
-section
-  = paginate @posts
+  = render 'posts_with_paginator', posts: @posts
