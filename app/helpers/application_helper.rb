@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def formatify(input)
-    Formatter.markdown_to_html(input, self)
+    Formatter.new(input, self).escape.to_html
   end
 end

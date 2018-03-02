@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228084237) do
+ActiveRecord::Schema.define(version: 20180302144415) do
 
   create_table "followings", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180228084237) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "body_html"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 20180228084237) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "bio"
+    t.text "bio_html"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
   end

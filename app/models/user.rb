@@ -14,6 +14,8 @@ class User < ApplicationRecord
   # This enables #password= and the automatic hashing.
   has_secure_password
 
+  render_markdown :bio
+
   # Establish a relation to this user's posts.
   has_many :posts,
     -> { order(created_at: :desc) },

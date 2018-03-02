@@ -1,9 +1,21 @@
-module Formatter
-  module_function
+class Formatter
+  def initialize(input, view)
+    @input = input
+    @view = view
+  end
 
-  def markdown_to_html(input, view)
-    Kramdown::Document.new(view.send(:html_escape, input))
-      .to_html
-      .html_safe
+  def escape
+    @input = @view.send(:html_escape, @input)
+    self
+  end
+
+  def to_html
+    kramdown_document.to_html.html_safe
+  end
+
+  private
+
+  def kramdown_document
+    Kramdown::Document.new(@input)
   end
 end

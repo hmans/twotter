@@ -9,4 +9,6 @@ class Post < ApplicationRecord
 
   scope :latest,
     -> { order(created_at: :desc) }
+
+  render_markdown :body
 end
