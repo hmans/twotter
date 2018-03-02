@@ -25,5 +25,4 @@ module SeedData
         created_at: rand(0.seconds..7.days).ago
     end
   end
-
 end
