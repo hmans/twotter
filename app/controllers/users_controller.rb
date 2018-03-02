@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  include CanLoginUsers
+  include HandlesAuthorization
+  
   before_action :load_user, except: [:new, :create, :show]
   before_action :require_user, except: [:new, :create, :show]
 

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  include CanLoginUsers
+  
   def new
   end
 

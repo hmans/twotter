@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include HandlesAuthorization
+  
   before_action :load_user
   before_action :require_user, except: [:index, :show]
 
