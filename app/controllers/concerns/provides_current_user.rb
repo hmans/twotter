@@ -17,7 +17,7 @@ concern :ProvidesCurrentUser do
     if session[:current_user_id].present?
       User.find(session[:current_user_id])
     end
-  rescue ActiveRecord::NotFoundError
+  rescue ActiveRecord::RecordNotFound
     nil
   end
 end
