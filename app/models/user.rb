@@ -24,8 +24,7 @@ class User < ApplicationRecord
   has_many :followings
 
   has_many :followed_users,
-    through: :followings,
-    source: :followed_user
+    through: :followings
 
   # Establish the reverse relation, ie. to users following this user
   # (aka followers.) For this, we also need to establish a relation to the
