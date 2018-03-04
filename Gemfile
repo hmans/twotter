@@ -40,8 +40,8 @@ gem 'gravatar_image_tag'
 gem 'font-awesome-rails'
 # For pagination
 gem 'kaminari'
-# Let's add Markdown support
-gem 'kramdown'
+
+gem 'can_render_markdown'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
