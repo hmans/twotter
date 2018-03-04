@@ -56,6 +56,7 @@ group :development, :test do
 
   # For feature/system specs
   gem 'capybara'
+  gem "capybara-inline-screenshot"
   gem 'selenium-webdriver'
 end
 
