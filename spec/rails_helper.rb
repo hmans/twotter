@@ -54,4 +54,20 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Configure new Rails 5.1+ system specs. Out of the box, Rails will
+  # always use Selenium (with Chrome) for all system specs. If you want
+  # a similar behavior as with feature specs (where Selenium is only used
+  # for examples tagged with 'js'), you can do the following:
+  #
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+  end
+
+  # Load FactoryBot syntax
+  config.include FactoryBot::Syntax::Methods
 end

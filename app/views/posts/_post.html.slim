@@ -1,4 +1,4 @@
-article.post
+article.post id="post_#{post.id}"
   .post-avatar = gravatar post.user
   .post-content
     .post-meta #{link_to post.user.full_name, post.user}, #{time_ago_in_words post.created_at} ago:

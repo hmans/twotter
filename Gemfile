@@ -53,6 +53,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'ffaker'
+
+  # For feature/system specs
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
