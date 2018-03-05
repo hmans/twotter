@@ -9,12 +9,8 @@ describe PoopFilter do
     # outside HTTP interactions, we need to specifically allow these
     # for the examples contained in this block.
     #
-    around(:example) do |example|
-      WebMock.allow_net_connect!
-      example.run
-      WebMock.disable_net_connect!
-    end
-
+    before { WebMock.allow_net_connect! }
+  
     def execute; PoopFilter.filter(text); end
 
     context 'when a filthy text is given' do
