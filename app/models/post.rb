@@ -10,5 +10,12 @@ class Post < ApplicationRecord
   scope :latest,
     -> { order(created_at: :desc) }
 
+  # When saving a post, run the body through PoopFilter.
+  before_save do
+    if body_changed?
+      self.body = PoopFilter.filter(body)
+    end
+  end
+
   render_markdown :body
 end
