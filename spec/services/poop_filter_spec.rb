@@ -10,14 +10,14 @@ describe PoopFilter do
     # for the examples contained in this block.
     #
     before { WebMock.allow_net_connect! }
-  
+
     def execute; PoopFilter.filter(text); end
 
     context 'when a filthy text is given' do
       let(:text) { 'fuck this shit' }
 
       it 'removes the filthy words' do
-        expect(execute).to eq('**** this ****')
+        expect(execute).to eq('REDACTED this REDACTED')
       end
     end
 
