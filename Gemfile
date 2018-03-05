@@ -62,6 +62,7 @@ group :development, :test do
   gem "capybara-inline-screenshot"
   gem 'selenium-webdriver'
   gem 'site_prism'
+  gem 'webmock'
 end
 
 group :development do

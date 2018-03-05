@@ -1,7 +1,20 @@
 require 'rails_helper'
 
+# First, here's how we would spec it with actual HTTP interactions
+# happening.
+#
 describe PoopFilter do
   describe '.filter' do
+    # Since we've added webmock and told it to not allow any
+    # outside HTTP interactions, we need to specifically allow these
+    # for the examples contained in this block.
+    #
+    around(:example) do |example|
+      WebMock.allow_net_connect!
+      example.run
+      WebMock.disable_net_connect!
+    end
+
     def execute; PoopFilter.filter(text); end
 
     context 'when a filthy text is given' do
