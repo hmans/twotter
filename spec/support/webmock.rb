@@ -1,6 +1,8 @@
 require 'webmock/rspec'
 
 module APIStubs
+  module_function
+
   def stub_poopfilter
     stub_request(:any, %r{poopfilter.herokuapp.com/filter}).to_return do |request|
       input = request.uri.query_values["text"]
@@ -20,7 +22,6 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system) do
-    config.include APIStubs
-    stub_poopfilter
+    APIStubs.stub_poopfilter
   end
 end
