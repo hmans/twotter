@@ -43,6 +43,9 @@ gem 'kaminari'
 
 gem 'can_render_markdown'
 
+# For accessing PoopFilter
+gem 'httparty'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
