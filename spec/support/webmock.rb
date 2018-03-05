@@ -17,10 +17,6 @@ end
 RSpec.configure do |config|
   config.before(:each) do
     WebMock.disable_net_connect!(allow_localhost: true)
-  end
-
-  config.before(:each, type: :system) do
     config.include APIStubs
-    stub_poopfilter
   end
 end

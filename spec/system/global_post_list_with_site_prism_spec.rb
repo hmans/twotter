@@ -3,6 +3,8 @@ require 'rails_helper'
 # see spec/support/site_prism.rb
 
 describe 'global post page', js: true do
+  before { stub_poopfilter }
+
   let!(:alice) { create(:user, full_name: "Alice Foo") }
   let!(:bob) { create(:user, full_name: "Bob Foo") }
   let!(:alices_post) { create(:post, user: alice, body: "Hi, I'm Alice!") }
