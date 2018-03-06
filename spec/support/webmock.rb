@@ -8,7 +8,7 @@ module APIStubs
       {
         status: 200,
         headers: { content_type: 'application/json' },
-        body: { "output" => input }.to_json
+        body: { "input" => input, "output" => input }.to_json
       }
     end
   end
