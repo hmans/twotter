@@ -9,7 +9,7 @@ describe 'new user registration' do
 
   it 'works' do
     home_page.load
-    home_page.click_on 'Create Account'
+    home_page.navigation.click_on 'Create Account'
 
     expect(registration_page).to be_displayed
     expect(registration_page.page_title).to have_text("Create New Account")

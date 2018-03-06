@@ -10,6 +10,7 @@ module PageObjects
 
   class Page < SitePrism::Page
     element :flashes, 'div.flashes'
+    element :navigation, 'nav[role="main"]'
   end
 
   class PageWithPost < Page
