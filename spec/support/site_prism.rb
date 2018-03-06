@@ -78,12 +78,33 @@ module PageObjects
     end
   end
 
+  class ProfilePage < PageWithPosts
+    set_url '/users{/id}'
+  end
+
   module Helpers
     def register_user(data, keep_logged_in: false)
       page = RegistrationPage.new
       page.load
       page.fill_form(data)
       page.navigation.click_on("Logout") unless keep_logged_in
+    end
+
+    def login_user(name, password)
+      page = LoginPage.new
+      page.load
+      page.fill_form(name, password)
+    end
+
+    def logout_user
+      Page.new.navigation.click_on 'Logout'
+    end
+
+    def create_post(body)
+      page = TimelinePage.new
+      page.load
+      page.posts_section.new_post_form.body_field.set(body)
+      page.posts_section.new_post_form.click_on "Create Post"
     end
   end
 end
