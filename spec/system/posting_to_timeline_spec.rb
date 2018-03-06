@@ -18,8 +18,9 @@ describe 'posting new stuff to the timeline' do
     posts_section = timeline_page.posts_section
     expect(posts_section.new_post_form).to be_visible
 
-    posts_section.new_post_body.set(post_attributes[:body])
-    posts_section.click_on "Create Post"
+    form = posts_section.new_post_form
+    form.body_field.set(post_attributes[:body])
+    form.click_on "Create Post"
 
     expect(timeline_page).to be_displayed
 
