@@ -60,6 +60,12 @@ module PageObjects
     element :submit_button, 'input[type="submit"]'
 
     def fill_form(name, password)
+      # within 'form' do
+      #   fill_in 'Name or email', with: name
+      #   fill_in 'Password', with: password
+      #   click_on 'Login'
+      # end
+
       name_or_email_field.set(name)
       password_field.set(password)
       submit_button.click
