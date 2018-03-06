@@ -4,6 +4,7 @@ describe 'posting new stuff to the timeline' do
   include PageObjects::Helpers
 
   let(:timeline_page)   { PageObjects::TimelinePage.new }
+  let(:form)            { timeline_page.posts_section.new_post_form }
   let(:user_attributes) { attributes_for :user }
   let(:post_attributes) { attributes_for :post }
 
@@ -12,13 +13,10 @@ describe 'posting new stuff to the timeline' do
     register_user(user_attributes, keep_logged_in: true)
   end
 
-  specify do
+  it 'posts new stuff to the timleine' do
     timeline_page.load
 
-    posts_section = timeline_page.posts_section
-    expect(posts_section.new_post_form).to be_visible
-
-    form = posts_section.new_post_form
+    # Let's post something
     form.body_field.set(post_attributes[:body])
     form.click_on "Create Post"
 
@@ -30,5 +28,15 @@ describe 'posting new stuff to the timeline' do
 
     expect(post.body).to have_text(post_attributes[:body])
     expect(post.meta).to have_text(user_attributes[:full_name])
+  end
+
+  it 'automatically enables and disables the submit button', js: true do
+    timeline_page.load
+
+    expect(form.button).to be_disabled
+    form.body_field.set(post_attributes[:body])
+    expect(form.button).to_not be_disabled
+    form.body_field.set("")
+    expect(form.button).to be_disabled
   end
 end

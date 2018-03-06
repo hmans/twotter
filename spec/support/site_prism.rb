@@ -11,6 +11,7 @@ module PageObjects
 
   class NewPostForm < SitePrism::Section
     element :body_field, 'textarea#post_body'
+    element :button, 'input[type="submit"]'
   end
 
   class PostsSection < SitePrism::Section
