@@ -73,11 +73,11 @@ module PageObjects
   end
 
   module Helpers
-    def register_user(data)
+    def register_user(data, keep_logged_in: false)
       page = RegistrationPage.new
       page.load
       page.fill_form(data)
-      click_on("Logout")
+      page.navigation.click_on("Logout") unless keep_logged_in
     end
   end
 end
