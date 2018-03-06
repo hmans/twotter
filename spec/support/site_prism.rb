@@ -19,16 +19,16 @@ module PageObjects
     section :new_post_form, NewPostForm, 'form#new_post'
   end
 
-  class PageWithPost < Page
+  class PageWithPosts < Page
     section :posts_section, PostsSection, 'section.posts'
     element :title, 'h1'
   end
 
-  class GlobalPage < PageWithPost
+  class GlobalPage < PageWithPosts
     set_url '/global'
   end
 
-  class TimelinePage < PageWithPost
+  class TimelinePage < PageWithPosts
     set_url '/timeline'
   end
 
