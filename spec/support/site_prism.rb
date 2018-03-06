@@ -1,6 +1,11 @@
 module PageObjects
+  class Post < SitePrism::Section
+    element :meta, '.post-meta'
+    element :body, '.post-body'
+  end
+
   class PostsSection < SitePrism::Section
-    elements :posts, 'article.post'
+    sections :posts, Post, 'article.post'
   end
 
   class PageWithPost < SitePrism::Page

@@ -15,18 +15,20 @@ describe 'global post page', js: true do
   specify 'it lists all posts by all users' do
     page.load
 
-    expect(page)
-      .to have_posts_section
+    expect(page).to have_posts_section
 
-    expect(page.posts_section)
-      .to have_posts
+    expect(page.posts_section).to have_posts(count: 2)
 
-    expect(page.posts_section).to have_css 'article.post',
-      id: "post_#{alices_post.id}",
-      text: "Hi, I'm Alice!"
+    # Bob's post is the newest, so it should be first...
+    page.posts_section.posts.first.tap do |post|
+      expect(post.body).to have_text(bobs_post.body)
+      expect(post.meta).to have_text(bob.full_name)
+    end
 
-    expect(page.posts_section).to have_css 'article.post',
-      id: "post_#{bobs_post.id}",
-      text: "And I'm Bob!"
+    # ...followed by Alice's post.
+    page.posts_section.posts.second.tap do |post|
+      expect(post.body).to have_text(alices_post.body)
+      expect(post.meta).to have_text(alice.full_name)
+    end
   end
 end
