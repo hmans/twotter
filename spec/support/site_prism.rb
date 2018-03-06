@@ -11,6 +11,8 @@ module PageObjects
 
   class PostsSection < SitePrism::Section
     sections :posts, Post, 'article.post'
+    element :new_post_form, 'form#new_post'
+    element :new_post_body, 'textarea#post_body'
   end
 
   class PageWithPost < Page
