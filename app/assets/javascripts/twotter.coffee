@@ -8,7 +8,7 @@ $(document).on 'turbolinks:load', ->
 
   # When the textarea changes, enable/disable the submit button,
   # depending on whether we have any text available.
-  $textarea.on 'keyup', (e) ->
+  $textarea.on 'keyup change', (e) ->
     value = $(this).val().trim()
     $button.prop('disabled', value == "")
 
