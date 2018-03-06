@@ -30,8 +30,9 @@ module PageObjects
     set_url '/'
   end
 
-  class RegistrationPage < SitePrism::Page
+  class RegistrationPage < Page
     set_url '/users/new'
+
     element :page_title, 'h1'
 
     element :name_field, 'input#user_name'
@@ -48,6 +49,29 @@ module PageObjects
       password_confirmation_field.set(data[:password])
 
       click_on 'Create User'
+    end
+  end
+
+  class LoginPage < Page
+    set_url '/session/new'
+
+    element :name_or_email_field, 'input#login_name_or_email'
+    element :password_field, 'input#login_password'
+    element :submit_button, 'input[type="submit"]'
+
+    def fill_form(name, password)
+      name_or_email_field.set(name)
+      password_field.set(password)
+      submit_button.click
+    end
+  end
+
+  module Helpers
+    def register_user(data)
+      page = RegistrationPage.new
+      page.load
+      page.fill_form(data)
+      click_on("Logout")
     end
   end
 end
