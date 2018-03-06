@@ -5,7 +5,7 @@ describe 'new user registration' do
 
   let(:registration_page) { PageObjects::RegistrationPage.new }
   let(:timeline_page)     { PageObjects::TimelinePage.new }
-  let(:user_attributes)   { attributes_for :user, password: 'secret' }
+  let(:user_attributes)   { attributes_for :user }
 
   it 'works' do
     home_page.load

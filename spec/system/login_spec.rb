@@ -13,7 +13,7 @@ describe 'logging in a user' do
     register_user(user_attributes)
   end
 
-  it 'works' do
+  specify do
     home_page.load
     home_page.navigation.click_on "Login"
 

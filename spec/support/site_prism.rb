@@ -1,4 +1,9 @@
 module PageObjects
+  class Page < SitePrism::Page
+    element :flashes, 'div.flashes'
+    element :navigation, 'nav[role="main"]'
+  end
+
   class Post < SitePrism::Section
     element :meta, '.post-meta'
     element :body, '.post-body'
@@ -6,11 +11,6 @@ module PageObjects
 
   class PostsSection < SitePrism::Section
     sections :posts, Post, 'article.post'
-  end
-
-  class Page < SitePrism::Page
-    element :flashes, 'div.flashes'
-    element :navigation, 'nav[role="main"]'
   end
 
   class PageWithPost < Page
